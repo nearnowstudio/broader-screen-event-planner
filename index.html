@@ -138,6 +138,44 @@ margin: 5px;
 .hero-meta a:hover { color: var(--yellow); }
 .dot { color: var(--yellow); }
 
+/*/* ─── ACCORDIAN INSTRUCTIONS ─── */
+.accordion {
+  display: inline;
+  font-family: var(--ff-display);
+  background-color: var(--yellow);
+  font-size: 12px; color: var(--ink);
+  cursor: pointer;
+  padding: .5rem .75rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-radius: 0px;
+  margin-bottom: 0rem;
+  outline: none;
+  transition: 0.1s;
+}
+
+.arrow-icon {
+  width: 18px;
+  height: 18px;
+  float: right;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: var(--ink);
+  color: var(--surface);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 18px;
+  background-color: var(--surface));
+  border: 1px solid var(--ink-3);
+  display: none;
+  overflow: hidden;
+}
+
 /* ─── CONTROLS BAR ─── */
 .controls {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -470,26 +508,35 @@ margin: 5px;
 <span>This toolkit is for discussing and planning <em>Broader Screen</em> content events as part of cinema exhibition programming. Find out more about what this means at <a href="https://filmhubmidlands.org/broader-screen/" target="_blank" rel="noopener">filmhubmidlands.org</a>.<br>
 Each card represents something important to consider when exhibiting immersive, interactive projects and other screen-based storytelling content. Use the cards to help identify gaps or things needing further development. Use this toolkit as a solo exercise or as a group discussion with collaborators or colleagues.</span>
 <span>
-<h3>Instructions</h3>
-<ul>
+<button class="accordion">
+	How to use this toolkit
+	<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 9l6 6 6-6"/>
+  </svg>
+</button>
+<div class="panel">
+  <h3>Instructions</h3>
+  <ul>
 	<li>Choose a card to discuss or think about in detail.</li>
 	<li><u>Flip</u> the card to find more key questions and prompts to guide you.</li>
 	<li>Note anything you're not sure about or don't have an answer to.</li>
 	<li>Move on to a different card.</li>
 	<li><em>Optional:</em> Use the <u>'Solidarity Round'</u> option to share the most cards you're most unsure about.</li>
 </ul>
-<h3>Customisation</h3>
-Make changes to the cards to suit your needs.<br>All changes are saved in your browser using local storage. See the <a href="https://nearnowstudio.github.io/immersive-event-planning-deck/privacy-policy.html">Privacy Policy</a> for more details.
-<ul>
-	<li>Select <u>Edit</u> to change the content of each card.</li>
-	<li>Select <u>Remove</u> to delete a card from the deck.</li>
-	<li>Select <u>Add card</u> to make a new card specific to your event.</li>
-	<li>Select <u>Reset all cards to defaults</u> to clear all changes and start again.</li>
-	<li><em>Optional:</em> Select <u>Print / PDF</u> to print out or save a copy of the cards. Cut them out and use them as a physical card deck!
-</ul>
-<h3>Get in touch</h3>
-This is version 1 of the toolkit (released 09/2026). We welcome any feedback. Please <a href="https://filmhubmidlands.org/about/contact-us/">get in touch</a> with any suggestions, questions or problems with using it.
-</span>
+	<h3>Customisation</h3>
+	Make changes to the cards to suit your needs.<br>All changes are saved in your browser using local storage. See the <a href="https://nearnowstudio.github.io/immersive-event-planning-deck/privacy-policy.html">Privacy Policy</a> for more details.
+	<ul>
+		<li>Select <u>Edit</u> to change the content of each card.</li>
+		<li>Select <u>Remove</u> to delete a card from the deck.</li>
+		<li>Select <u>Add card</u> to make a new card specific to your event.</li>
+		<li>Select <u>Reset all cards to defaults</u> to clear all changes and start again.</li>
+		<li><em>Optional:</em> Select <u>Print / PDF</u> to print out or save a copy of the cards. Cut them out and use them as a physical card deck!
+	</ul>
+	<h3>Support</h3>
+	 <a href="https://filmhubmidlands.org/about/contact-us/">Get in touch</a> if you have any problems using this toolkit.
+	 <br>This is version 1.1 [release date 23.09.2026]. We welcome any feedback.
+	 <br>Please let us know if you have any comments, suggestions for improvements, or questions.
+</div>
     </div>
   </div>
 
@@ -594,6 +641,29 @@ This is version 1 of the toolkit (released 09/2026). We welcome any feedback. Pl
 <div id="print-area"></div>
 
 <script>
+
+/* ═══════════════════════════════════════════════════════════
+   ACCORDIAN — used for instructions text in header content
+   ═══════════════════════════════════════════════════════════ */
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
 /* ═══════════════════════════════════════════════════════════
    DATA — edit card content here or via the UI
    ═══════════════════════════════════════════════════════════ */
