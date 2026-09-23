@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version 2.0: preserves original functionality while fixing HTML/CSS validity, storage resilience, shuffle behaviour and keyboard accessibility. -->
+<!-- Version 1.1: go live with basic functionality, fixed shuffle behaviour, keyboard accessibility, fixed print option -->
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -76,7 +76,15 @@ body {
 .logo-sub {
   font-size: 11px; color: var(--ink-3); letter-spacing: .05em; text-transform: uppercase;
 }
-.header-actions { display: flex; gap: 8px; align-items: center; }
+.header-actions { display: flex; gap: 8px; align-items: center; 
+}
+ul {
+padding: 10px;
+}
+ul li {
+margin: 5px;
+}
+
 
 /* ─── BUTTONS ─── */
 .btn {
@@ -456,15 +464,31 @@ body {
 <main class="main-wrap" id="main">
 
   <div class="hero">
-    <h1>Immersive Event Planner</h1>
+    <h1>Broader Screen Event Planner</h1>
     <div class="hero-meta">
-	<span>This is a BFI FAN resource, created to support the exhibition of <em><a href="https://filmhubmidlands.org/show/exhibitor-resources/broader-screen-content/" target="_blank" rel="noopener">Broader Screen</a></em> content.</span>
-	<span>Film Hub Midlands are supporting the exhibition of <em>Broader Screen</em> content through a collection of the latest guidance, insights, toolkits, materials, and key contacts for FAN members.</span>
-      <!-- REMOVED <span>A BFI Film Audience Network resource</span>
-      <span class="dot">·</span>
-      <a href="https://filmhubmidlands.org/show/exhibitor-resources/broader-screen-content/" target="_blank" rel="noopener">Film Hub Midlands</a>
-      <span class="dot">·</span>
-      <span>Broader Screen Content</span> -->
+	<span><h2>A BFI FAN resource created to support the exhibition of <em><a href="https://filmhubmidlands.org/broader-screen/" target="_blank" rel="noopener">Broader Screen</a></em> content.</h2></span>
+<span>This toolkit is for discussing and planning <em>Broader Screen</em> content events as part of cinema exhibition programming. Find out more about what this means at <a href="https://filmhubmidlands.org/broader-screen/" target="_blank" rel="noopener">filmhubmidlands.org</a>.<br>
+Each card represents something important to consider when exhibiting immersive, interactive projects and other screen-based storytelling content. Use the cards to help identify gaps or things needing further development. Use this toolkit as a solo exercise or as a group discussion with collaborators or colleagues.</span>
+<span>
+<h3>Instructions</h3>
+<ul>
+	<li>Choose a card to discuss or think about in detail.</li>
+	<li><u>Flip</u> the card to find more key questions and prompts to guide you.</li>
+	<li>Note anything you're not sure about or don't have an answer to.</li>
+	<li>Move on to a different card.</li>
+	<li><em>Optional:</em> Use the <u>'Solidarity Round'</u> option to share the most cards you're most unsure about.</li>
+</ul>
+<h3>Customisation</h3>
+<ul>
+	<li>Select <u>Edit</u> to change the content of each card.</li>
+	<li>Select <u>Delete</u> to remove a card from the deck.</li>
+	<li>Select <u>Add card</u> to make a new card specific to your event.</li>
+	<li>Select <u>Reset all cards to defaults</u> to clear all changes and start again.</li>
+	<li><em>Optional:</em> Select <u>Print / PDF</u> to print out or save a copy of the cards. Cut them out and use them as a physical card deck!
+</ul>
+<h3>Get in touch</h3>
+This is version 1 of the toolkit (released 09/2026). We welcome any feedback. Please <a href="https://filmhubmidlands.org/about/contact-us/">get in touch</a> with any suggestions, questions or problems with using it.
+</span>
     </div>
   </div>
 
@@ -474,7 +498,7 @@ body {
     <div class="controls-right">
       <div class="mode-tabs" role="group" aria-label="Display mode">
         <button class="mode-tab active" data-mode="browse" onclick="setMode('browse')">Browse</button>
-        <button class="mode-tab" data-mode="solidarity" onclick="setMode('solidarity')">Solidarity round</button>
+        <button class="mode-tab" data-mode="solidarity" onclick="setMode('solidarity')">Solidarity Round</button>
       </div>
       <button class="btn btn-ghost btn-icon" onclick="shuffle()" title="Shuffle cards" aria-label="Shuffle cards">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
@@ -499,9 +523,9 @@ body {
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p>Immersive Event Planner — a Broader Screen Content resource by <a href="https://filmhubmidlands.org" target="_blank" rel="noopener">Film Hub Midlands</a> in partnership with <a href="https://nearnow.org.uk/" target="_blank" rel="noopener">Near Now</a>. Supported by the BFI Film Audience Network.</p>
+  <p>Broader Screen Event Planner by <a href="https://filmhubmidlands.org" target="_blank" rel="noopener">Film Hub Midlands</a> in partnership with <a href="https://nearnow.org.uk/" target="_blank" rel="noopener">Near Now</a>. Supported by BFI Film Audience Network.</p>
   <br>
-  <a href="https://nearnowstudio.github.io/immersive-event-planning-deck/privacy-policy.html">Privacy Policy</a>
+  <a href="https://nearnowstudio.github.io/immersive-event-planning-deck/privacy-policy.html">Privacy Policy</a> | <a href="https://filmhubmidlands.org/about/contact-us/">Contact us</a>
 </footer>
 
 <!-- ADD / EDIT CARD MODAL -->
