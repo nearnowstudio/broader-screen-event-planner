@@ -479,9 +479,10 @@ Each card represents something important to consider when exhibiting immersive, 
 	<li><em>Optional:</em> Use the <u>'Solidarity Round'</u> option to share the most cards you're most unsure about.</li>
 </ul>
 <h3>Customisation</h3>
+Make changes to the cards to suit your needs.<br>All changes are saved in your browser using local storage. See the <a href="https://nearnowstudio.github.io/immersive-event-planning-deck/privacy-policy.html">Privacy Policy</a> for more details.
 <ul>
 	<li>Select <u>Edit</u> to change the content of each card.</li>
-	<li>Select <u>Delete</u> to remove a card from the deck.</li>
+	<li>Select <u>Remove</u> to delete a card from the deck.</li>
 	<li>Select <u>Add card</u> to make a new card specific to your event.</li>
 	<li>Select <u>Reset all cards to defaults</u> to clear all changes and start again.</li>
 	<li><em>Optional:</em> Select <u>Print / PDF</u> to print out or save a copy of the cards. Cut them out and use them as a physical card deck!
@@ -506,7 +507,7 @@ This is version 1 of the toolkit (released 09/2026). We welcome any feedback. Pl
     </div>
   </div>
 
-  <p class="mode-hint" id="mode-hint">Click any card to flip it and reveal the key question and prompts. Hover on a card to edit or delete it.</p>
+  <p class="mode-hint" id="mode-hint">Click any card to flip it and reveal the key question and prompts. Hover on a card to edit or remove it.</p>
 
   <div class="count-bar">
     <span class="count-text" id="count-text"></span>
@@ -847,7 +848,7 @@ function filterCat(cat) {
 }
 
 const MODE_HINTS = {
-  browse: 'Click any card to flip it and reveal the key question and prompts. Hover a card to edit or delete it.',
+  browse: 'Click any card to flip it and reveal the key question and prompts. Hover a card to edit or remove it.',
   solidarity: 'Select 1–3 "most difficult" cards to share pain points. Tap to select (max 3).',
 };
 
@@ -957,7 +958,7 @@ function cardHTML(c, i) {
       </button>
       <button class="btn btn-danger" style="font-size:12px;padding:5px 12px" onclick="deleteCard(${c.id})">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-        Delete
+        Remove
       </button>
     </div>
   </div>`;
@@ -990,7 +991,7 @@ function flipBack(id) {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   ADD / EDIT / DELETE
+   ADD / EDIT / REMOVE
    ═══════════════════════════════════════════════════════════ */
 function openAddCard() {
   document.getElementById('modal-title').textContent = 'Add new card';
@@ -1042,7 +1043,7 @@ function saveCard() {
 }
 function deleteCard(id) {
   const c = cards.find(x=>x.id===id);
-  if (!confirm(`Delete the card "${c?.name}"? This cannot be undone.`)) return;
+  if (!confirm(`Remove the card "${c?.name}"? This cannot be undone.`)) return;
   cards = cards.filter(x=>x.id!==id);
   flippedIds.delete(id); solidarityIds.delete(id);
   saveCards();
